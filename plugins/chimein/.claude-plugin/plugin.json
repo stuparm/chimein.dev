@@ -1,0 +1,12 @@
+{
+  "name": "chimein",
+  "version": "0.1.0",
+  "description": "Send your question, Claude's answer or a summary to a teammate on Slack or another chat app and read their reply, with mandatory confirmation and secret redaction.",
+  "author": {
+    "name": "Mihailo Stupar",
+    "email": "stupar.mih@gmail.com"
+  },
+  "repository": "https://github.com/stuparm/chimein.dev",
+  "license": "MIT",
+  "keywords": ["slack", "teams", "discord", "telegram", "chat", "collaboration", "teammate", "human-in-the-loop"]
+}

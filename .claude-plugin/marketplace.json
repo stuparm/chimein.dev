@@ -1,0 +1,15 @@
+{
+  "name": "chimein",
+  "description": "Pull a teammate into your AI session from Slack.",
+  "owner": {
+    "name": "Mihailo Stupar",
+    "email": "stupar.mih@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "chimein",
+      "source": "./plugins/chimein",
+      "description": "Send your question, Claude's answer or a summary to a teammate on Slack or another chat app and read their reply, with mandatory confirmation and secret redaction."
+    }
+  ]
+}
