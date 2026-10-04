@@ -94,7 +94,7 @@ own.
 
 <referenced content>
 ```
-— sent with chimein from <user's name>'s <agent> · <footer ending>
+— sent from <user's name>'s <agent> · <footer ending>
 ````
 
 - Put everything except the footer in one code block: ``` on Slack, Discord and Telegram; on
@@ -103,19 +103,18 @@ own.
 - `<agent>`: your own product name, such as Claude, Codex, Gemini or Cursor.
 - `<user's name>`: the user's display name from their profile on this platform. If the message
   goes out as a bot, take it from the user's profile on another connected platform, or ask once.
-- `<footer ending>`: `reply here` for a person, `reply in this thread` for a channel.
+- `<footer ending>`: how to reply on this platform, from the table below.
 
-The whole message, code block fences and footer included, must fit the limit for its platform:
+| Platform | Footer ending | Platform's own limit | chimein's limit |
+|---|---|---|---|
+| Slack | `reply in 🧵` | 4,000 characters recommended (truncated past 40,000) | 4,000 characters |
+| Microsoft Teams | `reply to this message` | about 100 KB per message | 4,000 characters |
+| Discord | `reply to this message` | 2,000 characters | 2,000 characters |
+| Telegram | `reply to this message` | 4,096 characters | 4,000 characters |
+| Any other | `reply here` | unknown | 2,000 characters |
 
-| Platform | Platform's own limit | chimein's limit |
-|---|---|---|
-| Slack | 4,000 characters recommended (truncated past 40,000) | 4,000 characters |
-| Microsoft Teams | about 100 KB per message | 4,000 characters |
-| Discord | 2,000 characters | 2,000 characters |
-| Telegram | 4,096 characters | 4,000 characters |
-| Any other | unknown | 2,000 characters |
-
-If you had to shorten the content to fit, say so in the confirmation.
+The whole message, code block fences and footer included, must fit chimein's limit for its
+platform. If you had to shorten the content to fit, say so in the confirmation.
 
 ### 4. Redact
 

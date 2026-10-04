@@ -50,12 +50,14 @@ claude.ai: **Customize → Plugins → add marketplace** `stuparm/chimein.dev`, 
 The message arrives as a code block, with a footer below it:
 
 ```
-— sent with chimein from <your name>'s <agent> · reply here
+— sent from <your name>'s <agent> · reply in 🧵
 ```
 
-`<agent>` is the assistant that sent it: Claude, Codex, Gemini and so on. A message is at most
-4,000 characters (2,000 on Discord and on apps chimein doesn't know). Longer content is shortened,
-and the confirmation tells you so.
+`<agent>` is the assistant that sent it: Claude, Codex, Gemini and so on. The ending says how to
+reply on that app: `reply in 🧵` on Slack, `reply to this message` on Teams, Discord and Telegram.
+
+A message is at most 4,000 characters (2,000 on Discord and on apps chimein doesn't know). Longer
+content is shortened, and the confirmation tells you so.
 
 ## Safety
 

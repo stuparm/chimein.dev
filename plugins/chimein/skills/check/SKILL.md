@@ -42,7 +42,9 @@ Then find the target:
 
 With a target, read the conversation chimein messages to it were sent in: the direct conversation
 with that person (on a platform that sends as a bot, the bot's conversation with them), or the
-channel's history. Find the most recent message containing `sent with chimein`. With several
+channel's history. Find the most recent message that contains the footer line `send` adds: it
+starts with `— sent from` and ends with a reply hint such as `reply in 🧵`. It's usually not the
+last line, because some platforms add their own line below it (Slack: "Sent using …"). With several
 platforms, take the most recent one across all of them. Look back at least 7 days. If there is
 none, say "No chimein message to <name> in the last 7 days" and stop.
 
@@ -58,7 +60,9 @@ Replies to the message are its thread, if the platform has threads, and messages
   in a direct conversation are usually not threaded, so check both.
 - **Channel:** those replies only, from anyone.
 
-Skip messages from whoever sent the chimein message (the user, or the bot). Sort by time.
+Skip messages from whoever sent the chimein message (the user, or the bot). Exception: when the
+target is the user themselves (`@me`), sender and recipient are the same, so skip only the chimein
+message itself. Sort by time.
 
 ### 3. Show them
 
