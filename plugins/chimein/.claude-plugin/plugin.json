@@ -6,6 +6,7 @@
     "name": "Mihailo Stupar",
     "email": "stupar.mih@gmail.com"
   },
+  "homepage": "https://chimein.dev",
   "repository": "https://github.com/stuparm/chimein.dev",
   "license": "MIT",
   "keywords": ["slack", "teams", "discord", "telegram", "chat", "collaboration", "teammate", "human-in-the-loop"]

@@ -1,8 +1,14 @@
-// Cloudflare Worker that serves the static site in ./public (no Worker script).
+// Cloudflare Worker that serves the static site in ./public (no Worker script),
+// only on chimein.dev: the default workers.dev and preview URLs are turned off.
 {
   "name": "chimein",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./public"
-  }
+  },
+  "routes": [
+    { "pattern": "chimein.dev", "custom_domain": true }
+  ],
+  "workers_dev": false,
+  "preview_urls": false
 }
