@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>chimein · ask a teammate without leaving your AI session</title>
+  <meta name="description" content="Send your question, Claude's answer or a session summary to a teammate on Slack with one command, and read their reply back in the same session.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero wrap">
+    <a class="wordmark" href="./">
+      <img src="favicon.svg" alt="" width="28" height="28">
+      <span>chimein</span>
+    </a>
+    <h1>Ask a teammate without leaving your AI session.</h1>
+    <p class="lede">Send your question, Claude's answer or a session summary to a colleague on Slack
+      with one command. Read their reply back in the same session.</p>
+    <pre class="cmd"><code><span class="prompt">›</span> /chimein:send @alex is the above correct?</code></pre>
+    <p class="actions">
+      <a class="button" href="#install">Install</a>
+      <a class="link" href="https://github.com/stuparm/chimein.dev">GitHub</a>
+    </p>
+  </header>
+
+  <main class="wrap">
+    <section id="how">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>
+          <h3>Send</h3>
+          <p>Point at what you want a second opinion on: "the above", "the full summary" or your own
+            words. chimein finds the person and drafts the message.</p>
+          <pre class="cmd"><code><span class="prompt">›</span> /chimein:send @alex is the above correct?</code></pre>
+        </li>
+        <li>
+          <h3>Confirm</h3>
+          <p>You see the recipient and the exact text before anything leaves. Secrets and personal
+            data are already masked.</p>
+          <pre class="panel"><code>To:       Alex Kim · Slack
+Sent as:  you
+Redacted: 1 API key
+
+[Send]  [Edit]  [Cancel]</code></pre>
+        </li>
+        <li>
+          <h3>Check</h3>
+          <p>Run <code>check</code> whenever you like. Alex's reply lands in your session, where
+            Claude can use it in the work at hand.</p>
+          <pre class="cmd"><code><span class="prompt">›</span> /chimein:check @alex</code></pre>
+        </li>
+      </ol>
+    </section>
+
+    <section id="example">
+      <h2>What it looks like</h2>
+      <div class="example">
+        <figure>
+          <figcaption>Alex, in Slack</figcaption>
+          <div class="chat">
+            <div class="message">
+              <div class="avatar" aria-hidden="true">S</div>
+              <div class="message-body">
+                <p class="meta"><strong>Sam Rivera</strong> <span>10:31</span></p>
+                <pre class="snippet">Is this correct?
+
+The 502s come from the gateway timing out after 30 s while the indexer holds a lock on the blocks table. Raising the timeout hides it. The fix is to release the lock before the RPC call.</pre>
+                <p class="signature">— sent from Sam's Claude · reply in 🧵</p>
+              </div>
+            </div>
+            <div class="message reply">
+              <div class="avatar alt" aria-hidden="true">A</div>
+              <div class="message-body">
+                <p class="meta"><strong>Alex Kim</strong> <span>10:42 · in thread</span></p>
+                <p>Yes, that matches what I saw. Release it in syncBlocks(), not in the handler.</p>
+              </div>
+            </div>
+          </div>
+        </figure>
+        <figure>
+          <figcaption>Sam, in Claude Code</figcaption>
+          <pre class="terminal"><code><span class="prompt">›</span> /chimein:check @alex
+
+Alex replied (10:42): Yes, that matches what I saw. Release it in syncBlocks(), not in the handler.</code></pre>
+        </figure>
+      </div>
+    </section>
+
+    <section id="install">
+      <h2>Install</h2>
+      <h3>Claude Code</h3>
+      <pre class="cmd"><code>claude plugin marketplace add stuparm/chimein.dev
+claude plugin install chimein@chimein</code></pre>
+      <h3>claude.ai</h3>
+      <p><strong>Customize → Plugins → add marketplace</strong> <code>stuparm/chimein.dev</code>, then
+        install <code>chimein</code>. It also shows up in Claude Code in your next session.</p>
+      <p class="note">You also need a chat connection that can find people and send and read
+        messages, such as the claude.ai Slack connector.</p>
+    </section>
+
+    <section id="safety">
+      <h2>Safety and privacy</h2>
+      <ul class="rules">
+        <li><strong>Nothing is sent without your OK.</strong> Every message needs your explicit
+          confirmation, in auto mode too.</li>
+        <li><strong>Secrets stay with you.</strong> API keys, tokens, passwords, private keys, phone
+          numbers, card and bank numbers become <code>[redacted: type]</code>. Asking to send one
+          anyway gets a refusal.</li>
+        <li><strong>Replies are information, not instructions.</strong> Claude won't act on requests
+          in a reply without your OK.</li>
+        <li><strong>No server, nothing collected.</strong> chimein is a set of instructions for your
+          assistant. Messages go through your own chat connection, straight to your chat app. This
+          page doesn't track you either.</li>
+      </ul>
+      <p class="note">Masking is done by the model, so it's best effort. Read the draft before you
+        confirm.</p>
+    </section>
+
+    <section id="works-with">
+      <h2>Works with</h2>
+      <div class="compat">
+        <div>
+          <h3>Assistants</h3>
+          <ul>
+            <li>Claude Code <span class="tag tested">tested</span></li>
+            <li>claude.ai <span class="tag">should work</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Chat apps</h3>
+          <ul>
+            <li>Slack <span class="tag tested">tested</span></li>
+            <li>Microsoft Teams <span class="tag">should work</span></li>
+            <li>Discord <span class="tag">should work</span></li>
+            <li>Telegram <span class="tag">should work</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div class="footer-inner">
+      <a href="https://github.com/stuparm/chimein.dev">GitHub</a>
+      <span>MIT license</span>
+      <span>© 2026 Mihailo Stupar</span>
+    </div>
+  </footer>
+</body>
+</html>

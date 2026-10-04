@@ -86,6 +86,12 @@ connector:
 }
 ```
 
+## Privacy
+
+chimein has no server and collects nothing. It's a set of instructions for your AI assistant:
+messages go from your assistant through your own chat connection (for example the claude.ai Slack
+connector) straight to your chat app, and replies are read back the same way.
+
 ## License
 
 MIT
